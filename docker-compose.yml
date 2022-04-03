@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  application:
+    restart: unless-stopped
+    container_name: asmy-docs
+    build: .
+    networks:
+      - server
+
+networks:
+  server:
+    external: true
