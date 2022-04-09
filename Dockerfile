@@ -1,31 +1,14 @@
-FROM node:lts as builder
+FROM node:16-alpine as builder
 
 WORKDIR /app
 
 COPY . .
 
-RUN yarn install \
-  --prefer-offline \
-  --frozen-lockfile \
-  --non-interactive \
-  --production=false
+RUN yarn install
 
-RUN yarn build
+RUN yarn generate
 
-RUN rm -rf node_modules && \
-  NODE_ENV=production yarn install \
-  --prefer-offline \
-  --pure-lockfile \
-  --non-interactive \
-  --production=true
-
-FROM node:lts
-
-WORKDIR /app
-
-COPY --from=builder /app  .
-
-ENV HOST 0.0.0.0
+FROM nginx:stable-alpine
+COPY --from=builder /app/dist /usr/share/nginx/html
 EXPOSE 80
-
-CMD [ "yarn", "start" ]
+CMD ["nginx", "-g", "daemon off;"]
