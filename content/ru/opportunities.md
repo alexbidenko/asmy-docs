@@ -1,11 +1,9 @@
 ---
-title: Возможность
+title: Возможности
 description: ''
 position: 2
 category: Guide
 ---
-
-# Основные возможности
 
 ## Работа с проектами
 

@@ -1,13 +1,9 @@
 ---
-title: Установка
+title: Установка и запуск
 description: ''
 position: 3
 category: Guide
 ---
-
-# Admire Server Manager
-
-## Установка и запуск
 
 Для установки приложения необходимо выполнить следующие шаги:
 
