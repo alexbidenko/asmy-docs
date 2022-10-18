@@ -9,7 +9,7 @@ on:
       - main
 
 jobs:
-  build-client:
+  build:
     runs-on: ubuntu-22.04
 
     steps:
@@ -22,13 +22,15 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Build and publish client
+      - name: Build and publish
         run: |
           docker build . --tag ghcr.io/alexbidenko1998/asmy-docs:latest
           docker push ghcr.io/alexbidenko1998/asmy-docs:latest
 
   deploy:
     runs-on: ubuntu-22.04
+
+    needs: [build]
 
     steps:
       - name: Checkout
