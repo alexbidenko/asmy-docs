@@ -2,11 +2,16 @@ version: '3.8'
 
 services:
   application:
-    restart: unless-stopped
-    container_name: asmy-docs
-    build: .
+    image: ghcr.io/alexbidenko1998/asmy-docs:latest
     networks:
       - server
+    deploy:
+      replicas: 1
+      update_config:
+        failure_action: rollback
+        order: start-first
+      restart_policy:
+        condition: on-failure
 
 networks:
   server:
