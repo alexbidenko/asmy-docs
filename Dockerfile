@@ -1,4 +1,8 @@
-FROM node:20-alpine as dependencies
+FROM node:20-alpine As base
+
+RUN npm i --global --no-update-notifier --no-fund pnpm
+
+FROM base as dependencies
 
 WORKDIR /app
 
@@ -6,7 +10,7 @@ COPY package.json pnpm-lock.yaml .npmrc ./
 
 RUN pnpm install --frozen-lockfile
 
-FROM node:20-alpine as builder
+FROM base as builder
 
 WORKDIR /app
 
