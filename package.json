@@ -3,13 +3,18 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "nuxt",
-    "build": "nuxt build",
-    "start": "nuxt start",
-    "generate": "nuxt generate"
+    "dev": "nuxi dev",
+    "build": "nuxi build",
+    "generate": "nuxi generate",
+    "preview": "nuxi preview",
+    "lint": "eslint ."
   },
-  "dependencies": {
-    "@nuxt/content-theme-docs": "^0.11.1",
-    "nuxt": "^2.15.8"
+  "devDependencies": {
+    "@nuxt-themes/docus": "1.15.0",
+    "@nuxt/devtools": "1.0.2",
+    "@nuxt/eslint-config": "0.2.0",
+    "@types/node": "20.9.0",
+    "eslint": "8.53.0",
+    "nuxt": "3.8.1"
   }
 }

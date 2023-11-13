@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   application:
-    image: ghcr.io/alexbidenko1998/asmy-docs:latest
+    image: ghcr.io/alexbidenko/asmy-docs:latest
     networks:
       - server
     deploy:
