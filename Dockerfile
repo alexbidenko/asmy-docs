@@ -1,4 +1,4 @@
-FROM node:20-alpine As base
+FROM node:22-alpine As base
 
 RUN npm i --global --no-update-notifier --no-fund pnpm
 
