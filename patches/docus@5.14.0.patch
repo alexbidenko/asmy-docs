@@ -1,0 +1,13 @@
+diff --git a/app/types/index.d.ts b/app/types/index.d.ts
+index 6cdea938a370e8d03de7a1b3b318db1d0a603428..558272395c88957859a661ed9d379aa4d30a0b27 100644
+--- a/app/types/index.d.ts
++++ b/app/types/index.d.ts
+@@ -24,7 +24,7 @@ export interface DocusSeoOrganization {
+   contactPoint?: Record<string, unknown> | Record<string, unknown>[]
+ }
+ 
+-declare module 'nuxt/schema' {
++declare module '@nuxt/schema' {
+   interface AppConfig {
+     docus: {
+       locale: string

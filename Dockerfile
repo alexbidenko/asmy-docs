@@ -1,12 +1,12 @@
-FROM node:22-alpine As base
+FROM node:24.21.0-alpine3.24 As base
 
-RUN npm i --global --no-update-notifier --no-fund pnpm
-
+RUN npm i --global --no-update-notifier --no-fund pnpm@12.11.2
 FROM base as dependencies
 
 WORKDIR /app
 
-COPY package.json pnpm-lock.yaml .npmrc ./
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
+COPY patches ./patches
 
 RUN pnpm install --frozen-lockfile
 
@@ -19,7 +19,7 @@ COPY . .
 
 RUN pnpm generate
 
-FROM nginx:stable-alpine
+FROM nginx:1.30.5-alpine3.24
 
 COPY --from=builder --chown=nginx:nginx /app/.output/public /usr/share/nginx/html
 

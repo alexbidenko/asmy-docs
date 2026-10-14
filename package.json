@@ -3,18 +3,30 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "nuxi dev",
-    "build": "nuxi build",
-    "generate": "nuxi generate",
-    "preview": "nuxi preview",
-    "lint": "eslint ."
+    "dev": "nuxt dev",
+    "build": "nuxt build",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "lint": "eslint .",
+    "typecheck": "nuxt typecheck"
   },
   "devDependencies": {
-    "@nuxt-themes/docus": "1.15.1",
-    "@nuxt/devtools": "1.6.3",
-    "@nuxt/eslint-config": "0.7.2",
-    "@types/node": "22.10.1",
-    "eslint": "8.57.1",
-    "nuxt": "3.14.1592"
-  }
+    "@nuxt/eslint": "1.17.0",
+    "@types/node": "24.19.2",
+    "eslint": "10.12.0",
+    "typescript": "6.0.3",
+    "vue-tsc": "3.3.13"
+  },
+  "packageManager": "pnpm@12.11.2",
+  "engines": {
+    "node": "^24.21.0 || >=26.0.0"
+  },
+  "dependencies": {
+    "docus": "5.14.0",
+    "nuxt": "4.6.1",
+    "vue": "3.5.43",
+    "vue-router": "5.4.0"
+  },
+  "type": "module"
 }
