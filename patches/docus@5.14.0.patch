@@ -1,3 +1,73 @@
+diff --git a/app/pages/[[lang]]/[...slug].vue b/app/pages/[[lang]]/[...slug].vue
+index 1ce2998f9f2f40cba9533fee57b43eb3bedbdf4a..3cf05a2406ece1807f5434fd37e7bc5b73305dc2 100644
+--- a/app/pages/[[lang]]/[...slug].vue
++++ b/app/pages/[[lang]]/[...slug].vue
+@@ -54,20 +54,6 @@ defineOgImage('Docs', {
+ 
+ const github = computed(() => appConfig.github ? appConfig.github : null)
+ 
+-const editLink = computed(() => {
+-  if (!github.value) {
+-    return
+-  }
+-
+-  return [
+-    github.value.url,
+-    'edit',
+-    github.value.branch,
+-    github.value.rootDir,
+-    'content',
+-    `${page.value?.stem}.${page.value?.extension}`,
+-  ].filter(Boolean).join('/')
+-})
+ </script>
+ 
+ <template>
+@@ -101,34 +87,17 @@ const editLink = computed(() => {
+         :value="page"
+       />
+ 
+-      <USeparator v-if="github">
+-        <div
+-          class="flex items-center gap-2 text-sm text-muted"
++      <USeparator v-if="github?.url">
++        <UButton
++          variant="link"
++          color="neutral"
++          :to="`${github.url}/issues/new/choose`"
++          target="_blank"
++          icon="i-lucide-alert-circle"
++          :ui="{ leadingIcon: 'size-4' }"
+         >
+-          <UButton
+-            variant="link"
+-            color="neutral"
+-            :to="editLink"
+-            target="_blank"
+-            icon="i-lucide-pen"
+-            :ui="{ leadingIcon: 'size-4' }"
+-          >
+-            {{ t('docs.edit') }}
+-          </UButton>
+-          <template v-if="github?.url">
+-            <span>{{ t('common.or') }}</span>
+-            <UButton
+-              variant="link"
+-              color="neutral"
+-              :to="`${github.url}/issues/new/choose`"
+-              target="_blank"
+-              icon="i-lucide-alert-circle"
+-              :ui="{ leadingIcon: 'size-4' }"
+-            >
+-              {{ t('docs.report') }}
+-            </UButton>
+-          </template>
+-        </div>
++          {{ t('docs.report') }}
++        </UButton>
+       </USeparator>
+       <UContentSurround :surround="surround" />
+     </UPageBody>
 diff --git a/app/types/index.d.ts b/app/types/index.d.ts
 index 6cdea938a370e8d03de7a1b3b318db1d0a603428..558272395c88957859a661ed9d379aa4d30a0b27 100644
 --- a/app/types/index.d.ts

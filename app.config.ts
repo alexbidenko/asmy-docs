@@ -2,7 +2,7 @@ export default defineAppConfig({
   docus: { locale: 'ru' },
   seo: {
     title: 'Admire Server Manager — Документация',
-    description: 'Панель администрирования сервера нового поколения заточенная под современную контейнерную архитектуру.',
+    description: 'Руководство Asmy: установка, домены, Docker, файлы, пользователи и обслуживание сервера.',
   },
   header: {
     title: 'Asmy',

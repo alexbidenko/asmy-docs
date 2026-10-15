@@ -6,6 +6,9 @@ importers:
   .:
     configDependencies: {}
     packageManagerDependencies:
+      '@pnpm/exe':
+        specifier: 12.11.2
+        version: 12.11.2
       pnpm:
         specifier: 12.11.2
         version: 12.11.2
@@ -89,6 +92,11 @@ packages:
     cpu: [x64]
     os: [win32]
 
+  '@pnpm/exe@12.11.2':
+    resolution: {integrity: sha512-uUudrvXShgp6yYRL/6XjeB2B2kbjE/alBdVWjFBP0jDiOnV5R83OpCWuGtc+Tn4stk0DEgO/x+vhEUTUf4x+Yw==}
+    engines: {node: '>=18.*'}
+    hasBin: true
+
   pnpm@12.11.2:
     resolution: {integrity: sha512-JaUWUqGWeFr18ovabf6NxYLr76SsHRgCIc4TkCMcX7dmN4IupLbkYzznSs3LCnf3Ja8RutOBd/3t2u6BipVcuQ==}
     engines: {node: '>=18.*'}
@@ -138,6 +146,23 @@ snapshots:
   '@pnpm/exe.win32-x64@12.11.2':
     optional: true
 
+  '@pnpm/exe@12.11.2':
+    optionalDependencies:
+      '@pnpm/exe.android-arm64': 12.11.2
+      '@pnpm/exe.android-x64': 12.11.2
+      '@pnpm/exe.darwin-arm64': 12.11.2
+      '@pnpm/exe.darwin-x64': 12.11.2
+      '@pnpm/exe.freebsd-x64': 12.11.2
+      '@pnpm/exe.linux-arm64': 12.11.2
+      '@pnpm/exe.linux-arm64-musl': 12.11.2
+      '@pnpm/exe.linux-ppc64': 12.11.2
+      '@pnpm/exe.linux-riscv64': 12.11.2
+      '@pnpm/exe.linux-s390x': 12.11.2
+      '@pnpm/exe.linux-x64': 12.11.2
+      '@pnpm/exe.linux-x64-musl': 12.11.2
+      '@pnpm/exe.win32-arm64': 12.11.2
+      '@pnpm/exe.win32-x64': 12.11.2
+
   pnpm@12.11.2:
     optionalDependencies:
       '@pnpm/exe.android-arm64': 12.11.2
@@ -168,7 +193,7 @@ overrides:
 
 patchedDependencies:
   '@nuxt/devtools@3.4.2': f5f6b99ade191fa056e35c03f247ad65922604b135187e8c55b034335bd97705
-  docus@5.14.0: 506727143f6d58187e6939214e7554a2bb3c2f52b3f61fa2e6cd07cfd0e73cd4
+  docus@5.14.0: 7a785f44c49232883c15921bc7f2b531f3e9697376edce8b482f87f1988d6665
 
 importers:
 
@@ -176,7 +201,7 @@ importers:
     dependencies:
       docus:
         specifier: 5.14.0
-        version: 5.14.0(patch_hash=506727143f6d58187e6939214e7554a2bb3c2f52b3f61fa2e6cd07cfd0e73cd4)(5cdfcd1c83b729bd13de1bf0bacc48c9)
+        version: 5.14.0(patch_hash=7a785f44c49232883c15921bc7f2b531f3e9697376edce8b482f87f1988d6665)(5cdfcd1c83b729bd13de1bf0bacc48c9)
       nuxt:
         specifier: 4.6.1
         version: 4.6.1(@babel/plugin-syntax-jsx@7.29.7(@babel/core@7.29.7(supports-color@10.2.2)))(@babel/plugin-syntax-typescript@7.29.7(@babel/core@7.29.7(supports-color@10.2.2)))(@oxc-project/types@0.153.0)(@types/node@24.19.2)(@vue/compiler-sfc@3.5.43)(acorn@8.19.0)(better-sqlite3@12.11.1)(confbox@0.2.4)(db0@0.3.4(better-sqlite3@12.11.1))(dotenv@17.4.2)(esbuild@0.28.2)(eslint@10.12.0(jiti@2.7.0)(supports-color@10.2.2))(giget@3.3.1)(ioredis@5.11.1(supports-color@10.2.2))(lightningcss@1.33.0)(mlly@1.8.2)(optionator@0.9.4)(oxc-parser@0.151.0)(rolldown@1.2.13)(rollup-plugin-visualizer@7.1.1(rolldown@1.2.13)(rollup@4.64.5))(rollup@4.64.5)(srvx@1.0.5)(supports-color@10.2.2)(terser@5.51.2)(typescript@6.0.3)(vite@8.3.4(@types/node@24.19.2)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.1))(vue-tsc@3.3.13(typescript@6.0.3))(yaml@2.9.1)
@@ -11902,7 +11927,7 @@ snapshots:
 
   diff@8.0.4: {}
 
-  docus@5.14.0(patch_hash=506727143f6d58187e6939214e7554a2bb3c2f52b3f61fa2e6cd07cfd0e73cd4)(5cdfcd1c83b729bd13de1bf0bacc48c9):
+  docus@5.14.0(patch_hash=7a785f44c49232883c15921bc7f2b531f3e9697376edce8b482f87f1988d6665)(5cdfcd1c83b729bd13de1bf0bacc48c9):
     dependencies:
       '@ai-sdk/gateway': 4.0.110(zod@4.6.6)
       '@ai-sdk/mcp': 2.0.73(zod@4.6.6)
