@@ -1,7 +1,7 @@
 node_modules
 *.iml
 .idea
-*.log*
+*.log
 .nuxt
 .vscode
 .DS_Store
