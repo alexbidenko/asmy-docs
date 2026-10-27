@@ -4,10 +4,23 @@ on:
   push:
     branches:
       - main
+    paths-ignore:
+      - 'README.md'
+      - 'AGENTS.md'
+
+permissions:
+  contents: read
+
+env:
+  BUILD_CACHE: ghcr.io/${{ github.repository }}/build-cache:docs
+  DOCKER_BUILD_RECORD_UPLOAD: 'false'
 
 jobs:
   build:
     runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+      packages: write
 
     steps:
       - name: Checkout 🛎
@@ -28,9 +41,14 @@ jobs:
         with:
           push: true
           tags: ghcr.io/alexbidenko/asmy-docs:latest
+          cache-from: type=registry,ref=${{ env.BUILD_CACHE }}
+          cache-to: type=registry,ref=${{ env.BUILD_CACHE }},mode=max,ignore-error=true
 
   deploy:
     runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+      packages: read
 
     needs: [build]
 
